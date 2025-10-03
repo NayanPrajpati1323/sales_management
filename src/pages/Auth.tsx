@@ -1,38 +1,44 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { toast } from 'sonner';
-import { ThemeToggle } from '@/components/ThemeToggle';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { toast } from "sonner";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
   const { signIn, signUp, user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate("/");
     }
   }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email || !password) {
-      toast.error('Please fill in all fields');
+      toast.error("Please fill in all fields");
       return;
     }
 
     if (!isLogin && !name) {
-      toast.error('Please enter your name');
+      toast.error("Please enter your name");
       return;
     }
 
@@ -42,20 +48,20 @@ const Auth = () => {
       if (isLogin) {
         const { error } = await signIn(email, password);
         if (error) {
-          toast.error(error.message || 'Failed to sign in');
+          toast.error(error.message || "Failed to sign in");
         } else {
-          toast.success('Welcome back!');
+          toast.success("Welcome back!");
         }
       } else {
         const { error } = await signUp(email, password, name);
         if (error) {
-          toast.error(error.message || 'Failed to sign up');
+          toast.error(error.message || "Failed to sign up");
         } else {
-          toast.success('Account created successfully!');
+          toast.success("Account created successfully!");
         }
       }
     } catch (error: any) {
-      toast.error(error.message || 'An error occurred');
+      toast.error(error.message || "An error occurred");
     } finally {
       setLoading(false);
     }
@@ -66,14 +72,21 @@ const Auth = () => {
       <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>
-      
+
       <Card className="w-full max-w-md shadow-card animate-slide-up">
         <CardHeader className="space-y-1">
+          <div className="flex justify-center mb-2">
+            <img
+              src="/image-removebg-preview.png"
+              alt="App Logo"
+              className="h-16 w-auto"
+            />
+          </div>
           <CardTitle className="text-3xl font-bold text-center gradient-primary bg-clip-text text-transparent">
             SalesHub
           </CardTitle>
           <CardDescription className="text-center">
-            {isLogin ? 'Sign in to your account' : 'Create a new account'}
+            {isLogin ? "Sign in to your account" : "Create a new account"}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -91,7 +104,7 @@ const Auth = () => {
                 />
               </div>
             )}
-            
+
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -121,7 +134,7 @@ const Auth = () => {
               className="w-full gradient-primary"
               disabled={loading}
             >
-              {loading ? 'Loading...' : isLogin ? 'Sign In' : 'Sign Up'}
+              {loading ? "Loading..." : isLogin ? "Sign In" : "Sign Up"}
             </Button>
           </form>
 
@@ -130,7 +143,9 @@ const Auth = () => {
               onClick={() => setIsLogin(!isLogin)}
               className="text-primary hover:underline"
             >
-              {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
+              {isLogin
+                ? "Don't have an account? Sign up"
+                : "Already have an account? Sign in"}
             </button>
           </div>
         </CardContent>

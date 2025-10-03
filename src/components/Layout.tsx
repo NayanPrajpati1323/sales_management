@@ -52,9 +52,8 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Mobile Header */}
       <header className="md:hidden sticky top-0 z-50 border-b bg-card/95 backdrop-blur-sm">
         <div className="flex items-center justify-between p-4">
-          <h1 className="text-xl font-bold gradient-primary bg-clip-text text-transparent">
-            sm13
-          </h1>
+          {/* App Logo */}
+          <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Sheet open={open} onOpenChange={setOpen}>
@@ -65,7 +64,9 @@ const Layout = ({ children }: LayoutProps) => {
               </SheetTrigger>
               <SheetContent side="left" className="w-64 p-0">
                 <div className="h-full flex flex-col">
-                  <div className="p-6 border-b">
+                  <div className="p-6 border-b flex items-center gap-2">
+                    {/* App Logo in Sidebar */}
+                    <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
                     <h1 className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
                       sm13
                     </h1>
@@ -73,6 +74,10 @@ const Layout = ({ children }: LayoutProps) => {
                   <nav className="flex-1 p-4 space-y-2">
                     <NavLinks />
                   </nav>
+                  {/* Footer */}
+                  <footer className="p-4 text-xs text-muted-foreground text-center border-t">
+                    Created by Nayan Prajapati &copy;
+                  </footer>
                 </div>
               </SheetContent>
             </Sheet>
@@ -83,7 +88,9 @@ const Layout = ({ children }: LayoutProps) => {
       {/* Desktop Sidebar */}
       <aside className="hidden md:block w-64 border-r bg-card/50 backdrop-blur-sm">
         <div className="h-full flex flex-col">
-          <div className="p-6 border-b">
+          <div className="p-6 border-b flex items-center gap-2">
+            {/* App Logo in Sidebar */}
+            <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
             <h1 className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
               sm13
             </h1>
@@ -96,6 +103,10 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="p-4 border-t">
             <ThemeToggle />
           </div>
+          {/* Footer */}
+          <footer className="p-4 text-xs text-muted-foreground text-center border-t">
+            Created by Nayan Prajapati &copy;
+          </footer>
         </div>
       </aside>
 
