@@ -67,7 +67,7 @@ const Layout = ({ children }: LayoutProps) => {
                   <div className="p-6 border-b flex items-center gap-2">
                     {/* App Logo in Sidebar */}
                     <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
-                    <h1 className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
+                    <h1 className="text-2xl font-bold  bg-clip-text  ">
                       sm13
                     </h1>
                   </div>
@@ -91,7 +91,7 @@ const Layout = ({ children }: LayoutProps) => {
           <div className="p-6 border-b flex items-center gap-2">
             {/* App Logo in Sidebar */}
             <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
-            <h1 className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold  bg-clip-text ">
               sm13
             </h1>
           </div>

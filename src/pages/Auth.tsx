@@ -82,7 +82,7 @@ const Auth = () => {
               className="h-16 w-auto"
             />
           </div>
-          <CardTitle className="text-3xl font-bold text-center gradient-primary bg-clip-text text-transparent">
+          <CardTitle className="text-3xl font-bold text-center bg-clip-text ">
             SalesHub
           </CardTitle>
           <CardDescription className="text-center">
