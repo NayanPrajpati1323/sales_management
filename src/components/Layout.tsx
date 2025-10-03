@@ -1,10 +1,17 @@
-import { ReactNode, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { LayoutDashboard, FileText, BarChart3, User, Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { ThemeToggle } from './ThemeToggle';
-import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { ReactNode, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  LayoutDashboard,
+  FileText,
+  BarChart3,
+  User,
+  Menu,
+  X,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,10 +22,10 @@ const Layout = ({ children }: LayoutProps) => {
   const [open, setOpen] = useState(false);
 
   const navItems = [
-    { path: '/', icon: LayoutDashboard, label: 'Dashboard' },
-    { path: '/entries', icon: FileText, label: 'Entries' },
-    { path: '/analytics', icon: BarChart3, label: 'Analytics' },
-    { path: '/profile', icon: User, label: 'Profile' },
+    { path: "/", icon: LayoutDashboard, label: "Dashboard" },
+    { path: "/entries", icon: FileText, label: "Entries" },
+    { path: "/analytics", icon: BarChart3, label: "Analytics" },
+    { path: "/profile", icon: User, label: "Profile" },
   ];
 
   const NavLinks = () => (
@@ -26,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = location.pathname === item.path;
-        
+
         return (
           <Link
             key={item.path}
@@ -53,7 +60,11 @@ const Layout = ({ children }: LayoutProps) => {
       <header className="md:hidden sticky top-0 z-50 border-b bg-card/95 backdrop-blur-sm">
         <div className="flex items-center justify-between p-4">
           {/* App Logo */}
-          <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
+          <img
+            src="/image-removebg-preview.png"
+            alt="App Logo"
+            className="h-10 w-auto"
+          />
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Sheet open={open} onOpenChange={setOpen}>
@@ -66,10 +77,12 @@ const Layout = ({ children }: LayoutProps) => {
                 <div className="h-full flex flex-col">
                   <div className="p-6 border-b flex items-center gap-2">
                     {/* App Logo in Sidebar */}
-                    <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
-                    <h1 className="text-2xl font-bold  bg-clip-text  ">
-                      sm13
-                    </h1>
+                    <img
+                      src="/image-removebg-preview.png"
+                      alt="App Logo"
+                      className="h-10 w-auto"
+                    />
+                    <h1 className="text-2xl font-bold  bg-clip-text  ">sm13</h1>
                   </div>
                   <nav className="flex-1 p-4 space-y-2">
                     <NavLinks />
@@ -90,16 +103,16 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="h-full flex flex-col">
           <div className="p-6 border-b flex items-center gap-2">
             {/* App Logo in Sidebar */}
-            <img src="/image-removebg-preview.png" alt="App Logo" className="h-10 w-auto" />
-            <h1 className="text-2xl font-bold  bg-clip-text ">
-              sm13
-            </h1>
+            <img
+              src="/image-removebg-preview.png"
+              alt="App Logo"
+              className="h-10 w-auto"
+            />
+            <h1 className="text-2xl font-bold bg-clip-text ">sm13</h1>
           </div>
-          
           <nav className="flex-1 p-4 space-y-2">
             <NavLinks />
           </nav>
-
           <div className="p-4 border-t">
             <ThemeToggle />
           </div>

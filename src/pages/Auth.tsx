@@ -60,8 +60,12 @@ const Auth = () => {
           toast.success("Account created successfully!");
         }
       }
-    } catch (error: any) {
-      toast.error(error.message || "An error occurred");
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.error(error.message || "An error occurred");
+      } else {
+        toast.error("An unknown error occurred");
+      }
     } finally {
       setLoading(false);
     }
